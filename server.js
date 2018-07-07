@@ -66,8 +66,10 @@ app.get('/', function (req, res) {
   // try to initialize the db on every request if it's not already
   // initialized.
   if (!db) {
+      console.log('kumar: before calling initDb from get root : ',db);
     initDb(function(err){});
   }
+    console.log('kumar: AFTER calling initDb from get root : ',db);
   if (db) {
     var col = db.collection('counts');
     // Create a document with request IP and current time of request
@@ -87,9 +89,11 @@ app.get('/pagecount', function (req, res) {
   // try to initialize the db on every request if it's not already
   // initialized.
   if (!db) {
+      console.log('kumar: before calling initDb from get pagecount : ',db);
     initDb(function(err){});
   }
   if (db) {
+       console.log('kumar: AFTER calling initDb from get pagecount : ',db);
     db.collection('counts').count(function(err, count ){
       res.send('{ pageCount: ' + count + '}');
     });
