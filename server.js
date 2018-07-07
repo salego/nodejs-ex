@@ -42,7 +42,11 @@ var db = null,
 
 var initDb = function(callback) {
     console.log('kumar: inside initDB function, db: ',db);
-  if (mongoURL == null) return;
+  if (mongoURL == null){
+      console.log('kumar: inside initDB function if mongoURL, mongoURL: ',mongoURL);
+      console.log('kumar: inside initDB function if mongoURL, db: ',db);
+      return;
+  }
 
   var mongodb = require('mongodb');
     console.log('kumar: inside initDB function, mongodb: ', mongodb);
