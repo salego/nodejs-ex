@@ -39,6 +39,7 @@ var db = null,
     dbDetails = new Object();
 
 var initDb = function(callback) {
+    console.log('kumar: inside initDB function, db: ',db);
   if (mongoURL == null) return;
 
   var mongodb = require('mongodb');
@@ -58,7 +59,7 @@ var initDb = function(callback) {
     console.log('Connected to MongoDB at: %s', mongoURL);
   });
 };
-
+console.log('kumar: outside initDB , db: ',db);
 app.get('/', function (req, res) {
   // try to initialize the db on every request if it's not already
   // initialized.
